@@ -1,0 +1,14 @@
+version: "2"
+services:
+  mongodbdocker:
+    image: mongo:latest
+    container_name: "mongodbdocker"
+    ports:
+      - 27017:27017
+  springboot-mongodb-example:
+    image: springboot-mongodb-example:1.0
+    container_name: springboot-mongodb-example
+    ports:
+      - 8080:8080
+    links:
+      - mongodbdocker
